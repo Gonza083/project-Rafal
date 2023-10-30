@@ -1,0 +1,24 @@
+
+{% load i18n %}
+{% load timeline_tags %}
+
+{% block header %}
+{% endblock header %}
+
+    {# This will be used later when service grows abroad #}
+    <div class="col-12 col-sm-7 col-xl-5 no-padding">
+        {# load countries #}
+        {% get_countries as countries %}
+        <h3 class="home-control-panel-phrase offer-list-control-panel-phrase d-none d-md-block">
+            <b>{% trans 'Choose country' %}</b>
+        </h3>
+        <div class="offer-list-control-panel-select">
+            <select autocomplete="off" id="country_select" class="filter-select" data-param="country">
+                <option {% if not request.GET.country %}selected{% endif %} value="">{% trans 'All countries' %}</option>
+                {% for country in countries %}
+                    <option {% if request.GET.country == country.name %}selected{% endif %} value="{{ country.name }}">{{ country.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div> 
+  

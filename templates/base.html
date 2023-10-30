@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Site Title{% endblock %}</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <!-- CSS Styles, fonts, and other head resources -->
+    {% block head_extra %}{% endblock %}
+</head>
+
+
+<body>
+    <!-- Site header -->
+    <header>
+            <!-- Navigation menu, logo, etc. -->
+            {% include "base_without_navbar.html" %}
+    </header>
+
+    <!-- Main content -->
+    <main>
+        {% include "base_copia.html" %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Site footer -->
+    <footer>
+        <!-- Footer information, links, etc. -->
+    </footer>
+
+    <!-- JS Scripts and other end-of-body resources -->
+    {% block body_extra %}{% endblock %}
+    <script src="{% static 'scripts/scripts.js' %}"></script>
+</body>
+
+</html>
